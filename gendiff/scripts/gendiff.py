@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 from gendiff.engine import run_gendiff
 import argparse
 

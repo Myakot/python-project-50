@@ -33,3 +33,4 @@ jobs:
         with:
           coverageCommand: make test-coverage
           debug: true
+          verifyDownload: true
