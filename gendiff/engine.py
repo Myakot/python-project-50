@@ -16,11 +16,11 @@ def generate_diff(data1, data2):
 
     for key in data1.keys():
         item1 = data1[key]
-        print(item1)
+
         if key not in data2.keys():
             diff[f'- {key}'] = item1
         elif item1 == data2[key]:
-            diff[f'  {key}'] = data2.pop(key)
+            diff[f' {key}'] = data2.pop(key)
         else:
             diff[f'- {key}'] = item1
 
@@ -29,5 +29,9 @@ def generate_diff(data1, data2):
 
     sorted_diff = dict(sorted(diff.items(), key=lambda x: x[0][2:]))
 
-    return (str(json.dumps(sorted_diff, indent=2,
-                           separators=('', ': ')))).replace('"', '')
+    return format_diff(sorted_diff)
+
+
+def format_diff(diff):
+    json_diff = json.dumps(diff, indent=2, separators=('', ': '))
+    return (str(json_diff)).replace('"', '')
