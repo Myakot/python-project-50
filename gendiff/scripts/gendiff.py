@@ -1,39 +1,28 @@
-#!/usr/bin/env python
-
-from gendiff.engine import run_gendiff
+#!/usr/bin/env python3
 import argparse
+from gendiff.base import generate_diff
+
+
+DESCRIPTION = 'Compares two configuration files and shows a difference.'
+
+
+def parse_args():
+    parser = argparse.ArgumentParser(description=DESCRIPTION)
+    parser.add_argument("first_file",
+                        help='Path to json or yml file')
+    parser.add_argument("second_file",
+                        help='Path to second file in same format')
+    parser.add_argument("-f", "--format", default='stylish',
+                        choices=['stylish', 'plain', 'json'],
+                        help='set format of output: stylish, plain or json')
+    return parser.parse_args()
 
 
 def main():
-    parser = argparse.ArgumentParser(
-        description='Compares two configuration files and shows a difference.')
-    parser.add_argument(
-        "-f", '--format', metavar='FORMAT', help="set format of output")
-    parser.add_argument(
-        "first_file", type=str)
-    parser.add_argument(
-        "second_file", type=str)
-    args = vars(parser.parse_args())
-    file1 = args['first_file']
-    file2 = args['second_file']
-    run_gendiff(file1, file2)
+    args = parse_args()
+    diff = generate_diff(args.first_file, args.second_file, args.format)
+    print(diff)
 
 
 if __name__ == '__main__':
     main()
-
-'''
-gendiff -h
-usage: gendiff [-h] [-f FORMAT] first_file second_file
-
-Compares two configuration files and shows a difference.
-
-positional arguments:
-  first_file
-  second_file
-
-optional arguments:
-  -h, --help            show this help message and exit
-  -f FORMAT, --format FORMAT
-                        set format of output
-'''
