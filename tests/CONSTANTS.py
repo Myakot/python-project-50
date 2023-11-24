@@ -1,0 +1,6 @@
+PATH_JSON_1_1 = './tests/fixtures/file_1_1.json'
+PATH_JSON_1_2 = './tests/fixtures/file_1_2.json'
+PATH_JSON_1_RESULT = './tests/fixtures/file_1_result_json'
+PATH_JSON_2_1 = './tests/fixtures/file_2_1.json'
+PATH_JSON_2_2 = './tests/fixtures/file_2_2.json'
+PATH_JSON_2_RESULT = './tests/fixtures/file_2_result_json'
