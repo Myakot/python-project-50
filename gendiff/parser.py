@@ -1,8 +1,9 @@
 import json
 import os.path
+import yaml
 
 from yaml.loader import SafeLoader
-import yaml
+
 
 
 def file_parser(file_path):
