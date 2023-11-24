@@ -23,4 +23,3 @@ make lint:
 
 make test-coverage:
 		poetry run pytest
-
