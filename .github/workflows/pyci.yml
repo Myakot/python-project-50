@@ -20,17 +20,15 @@ jobs:
         # make depends on poetry
       - name: Install dependencies
         run: |
-          pip install poetry flake8 pytest
+          pip install poetry
           make install
       - name: Run linter and pytest
         run: |
           make check
       - name: Test & publish code coverage
         uses: paambaati/codeclimate-action@v5.0.0
-        if: github.ref_name == 'main'
         env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CODE_CLIMATE }}
+          CC_TEST_REPORTER_ID: ${{ CODE_CLIMATE }}
         with:
           coverageCommand: make test-coverage
           debug: true
-          verifyDownload: true
