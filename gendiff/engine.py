@@ -1,6 +1,6 @@
 from gendiff.diff import create_diff
 from gendiff.parser import parse
-from formatter.base import stringify_diff
+from formatters.formatter import stringify_diff
 
 
 def open_(path: str) -> tuple[str, str]:
