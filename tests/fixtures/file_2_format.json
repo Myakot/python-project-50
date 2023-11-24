@@ -1,0 +1,20 @@
+[
+  {
+    "name": "dir",
+    "type": "removed",
+    "value": {
+      "name": "long"
+    }
+  },
+  {
+    "name": "item",
+    "type": "changed",
+    "value": [
+      0,
+      {
+        "index": 55,
+        "log": 12
+      }
+    ]
+  }
+]
