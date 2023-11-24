@@ -1,13 +1,13 @@
 import json
 from os.path import normpath
+from gendiff.parser import file_parser
 
 
 def run_gendiff(file_path1, file_path2):
-
     file_path1 = normpath(file_path1)
     file_path2 = normpath(file_path2)
-    data1 = json.load(open(file_path1))
-    data2 = json.load(open(file_path2))
+    data1 = file_parser(file_path1)
+    data2 = file_parser(file_path2)
     print(generate_diff(data1, data2))
 
 
