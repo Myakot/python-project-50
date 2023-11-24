@@ -11,4 +11,7 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/e5bcf1b92ff88ca294c0/test_coverage)](https://codeclimate.com/github/Myakot/python-project-50/test_coverage)
 
 ### Asciinema in-progress work:
+#### Running gendiff on 2 .json files
 [![asciicast](https://asciinema.org/a/2yaVrXLQekZzfo5TOAq08eXHg.svg)](https://asciinema.org/a/2yaVrXLQekZzfo5TOAq08eXHg)
+#### Running gendiff on 2 .yaml files
+[![asciicast](https://asciinema.org/a/i4twHnFMxmAk3prokltqHmJdh.svg)](https://asciinema.org/a/i4twHnFMxmAk3prokltqHmJdh)
