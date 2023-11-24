@@ -20,3 +20,7 @@ package-install:
 
 make lint:
 		poetry run flake8 brain_games
+
+make test-coverage:
+		poetry run pytest
+
