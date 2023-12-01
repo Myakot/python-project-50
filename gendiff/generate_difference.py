@@ -4,6 +4,10 @@ from gendiff.formatter import stringify_diff
 
 
 def open_(path: str) -> tuple[str, str]:
+    # # тут следует функцию разбить на две:
+    # 1 - определение формата файла,
+    # 2 - загрузка данных с помощью парсера и передачи полученного формата
+
     with open(path, 'r') as stream:
         text = stream.read()
     if path.endswith('.json'):
@@ -16,6 +20,10 @@ def open_(path: str) -> tuple[str, str]:
 
 
 def generate_diff(file1_path: str, file2_path: str, format='stylish') -> str:
+    # а данная функция должна лишь брать данные -
+    # без файловой системы (open)  далее строить разницу
+    # и выводить в соответствующий формат
+
     ''' Compares two configuration files and return string with difference
     :param file1_path: Path to the first file
     :param file2_path: Path to the second file
