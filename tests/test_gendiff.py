@@ -1,7 +1,7 @@
 import pytest
 import copy
 
-from gendiff.generate_difference import generate_diff, open_
+from gendiff.generate_difference import generate_diff, get_format_and_data
 from gendiff.parser import parse
 from gendiff.diff import create_diff
 from formatters.stylish import stylish_format
@@ -39,7 +39,7 @@ def test_generate_diff_format(file1_path, file2_path, print_format, path_to_resu
 
 def test_open_exception():
     with pytest.raises(FileNotFoundError):
-        open_(path.PATH_JSON_FLAT_RESULT)
+        get_format_and_data(path.PATH_JSON_FLAT_RESULT)
 
 
 def test_parse_exception():
@@ -53,9 +53,9 @@ def test_stringify_exception():
 
 
 def test_diff():
-    data_1 = parse(*open_(path.PATH_JSON_1_1))
+    data_1 = parse(*get_format_and_data(path.PATH_JSON_1_1))
     data_1_copy = copy.deepcopy(data_1)
-    data_2 = parse(*open_(path.PATH_JSON_1_2))
+    data_2 = parse(*get_format_and_data(path.PATH_JSON_1_2))
     data_2_copy = copy.deepcopy(data_2)
     create_diff(data_1, data_2)
     assert data_1 == data_1_copy
@@ -63,8 +63,8 @@ def test_diff():
 
 
 def test_print():
-    data_1 = parse(*open_(path.PATH_JSON_1_1))
-    data_2 = parse(*open_(path.PATH_JSON_1_2))
+    data_1 = parse(*get_format_and_data(path.PATH_JSON_1_1))
+    data_2 = parse(*get_format_and_data(path.PATH_JSON_1_2))
     diff = create_diff(data_1, data_2)
     diff_copy = copy.deepcopy(diff)
     stylish_format(diff)
