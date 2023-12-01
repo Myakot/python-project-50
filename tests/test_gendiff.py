@@ -1,7 +1,7 @@
 import pytest
 import copy
 
-from gendiff.engine import generate_diff, open_
+from gendiff.generate_difference import generate_diff, open_
 from gendiff.parser import parse
 from gendiff.diff import create_diff
 from formatters.stylish import stylish_format
