@@ -19,6 +19,4 @@ JSON_FORMAT_RESULT_1 = './tests/fixtures/file_1_format.json'
 JSON_FORMAT_RESULT_2 = './tests/fixtures/file_2_format.json'
 UNKNOWN_FILE_FORMAT_1 = 'Unknown first file format!'
 UNKNOWN_FILE_FORMAT_2 = 'Unknown second file format!'
-CONSTANTS = (PATH_JSON_FLAT_1, PATH_JSON_FLAT_2, PATH_JSON_FLAT_RESULT)
-
-print(CONSTANTS)
+DESCRIPTION_GENDIFF = 'Compares two configuration files and shows a difference.'

@@ -1,13 +1,11 @@
 #!/usr/bin/env python3
 import argparse
 from gendiff.engine import generate_diff
-
-
-DESCRIPTION = 'Compares two configuration files and shows a difference.'
+from tests.CONSTANTS import DESCRIPTION_GENDIFF
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description=DESCRIPTION)
+    parser = argparse.ArgumentParser(description=DESCRIPTION_GENDIFF)
     parser.add_argument("first_file",
                         help='Path to json or yml file')
     parser.add_argument("second_file",
