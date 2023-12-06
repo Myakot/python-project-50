@@ -1,6 +1,7 @@
 from gendiff.diff import create_diff
 from gendiff.parser import parse
 from gendiff.formatters.formatter import stringify_diff
+import os
 
 
 def get_format_and_data(path: str) -> tuple[str, str]:
@@ -10,13 +11,12 @@ def get_format_and_data(path: str) -> tuple[str, str]:
 
 
 def get_format(path: str) -> str:
-    if path.endswith('.json'):
-        data_format = 'json'
-    elif path.endswith('.yml') or path.endswith('.yaml'):
-        data_format = 'yml'
-    else:
+    data_format = os.path.splitext(path)[1]
+    if data_format == '.yaml':
+        data_format = '.yml'
+    elif data_format == '':
         raise FileNotFoundError('Unknown file format')
-    return data_format
+    return data_format[1:]
 
 
 def generate_diff(file1_path: str, file2_path: str, format='stylish') -> str:
