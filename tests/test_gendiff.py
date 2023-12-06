@@ -4,10 +4,10 @@ import copy
 from gendiff.generate_difference import generate_diff, get_format_and_data
 from gendiff.parser import parse
 from gendiff.diff import create_diff
-from formatters.stylish import stylish_format
-from formatters.plain import plain_format
-from formatters.json import json_format
-from gendiff.formatter import stringify_diff
+from gendiff.formatters.stylish import stylish_format
+from gendiff.formatters.plain import plain_format
+from gendiff.formatters.json import json_format
+from gendiff.formatters.formatter import stringify_diff
 import tests.CONSTANTS as path
 
 
