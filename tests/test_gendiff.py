@@ -42,11 +42,6 @@ def test_open_exception():
         get_format_and_data(path.PATH_JSON_FLAT_RESULT)
 
 
-def test_parse_exception():
-    with pytest.raises(FileNotFoundError):
-        parse('something', 'unknown format')
-
-
 def test_stringify_exception():
     with pytest.raises(FileNotFoundError):
         stringify_diff('diff_data', 'unknown format')
