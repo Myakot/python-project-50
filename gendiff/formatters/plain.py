@@ -2,13 +2,13 @@ from json import dumps
 from gendiff.formatters.get_data import get_name_type_value, get_children
 
 
-def plain_format(diff: list) -> str:
-    result = dive(diff, '')
+def to_plain(diff: list) -> str:
+    result = walk(diff, '')
     result = [item.strip() for item in result if item]
     return '\n'.join(result)
 
 
-def dive(items: list, path: str) -> list:
+def walk(items: list, path: str) -> list:
     result = []
     for item in items:
         name, type_, value = get_name_type_value(item)
@@ -22,7 +22,7 @@ def dive(items: list, path: str) -> list:
             result.append(line)
         elif type_ == 'nested':
             children = get_children(item)
-            line = '\n'.join(dive(children, f'{new_path}.'))
+            line = '\n'.join(walk(children, f'{new_path}.'))
             result.append(line)
         elif type_ == 'changed':
             old_value, new_value = value

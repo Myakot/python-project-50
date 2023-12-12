@@ -5,7 +5,7 @@ from gendiff.generate_difference import generate_diff, get_format_and_data
 from gendiff.parser import parse
 from gendiff.diff import create_diff
 from gendiff.formatters.stylish import stylish_format
-from gendiff.formatters.plain import plain_format
+from gendiff.formatters.plain import to_plain
 from gendiff.formatters.json import json_format
 from gendiff.formatters.formatter import stringify_diff
 import tests.CONSTANTS as PATH
@@ -63,6 +63,6 @@ def test_print():
     diff = create_diff(data_1, data_2)
     diff_copy = copy.deepcopy(diff)
     stylish_format(diff)
-    plain_format(diff)
+    to_plain(diff)
     json_format(diff)
     assert diff == diff_copy
