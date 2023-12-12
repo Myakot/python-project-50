@@ -14,7 +14,7 @@ def walk(items: list, path: str) -> list:
         name, type_, value = get_name_type_value(item)
         new_path = f'{path}{name}'
         if type_ == 'added':
-            value_str = make_str_from_value(value)
+            value_str = to_str(value)
             line = f"Property '{new_path}' was added with value: {value_str}"
             result.append(line)
         elif type_ == 'removed':
@@ -26,15 +26,15 @@ def walk(items: list, path: str) -> list:
             result.append(line)
         elif type_ == 'changed':
             old_value, new_value = value
-            old_value_str = make_str_from_value(old_value)
-            new_value_str = make_str_from_value(new_value)
+            old_value_str = to_str(old_value)
+            new_value_str = to_str(new_value)
             line = f"Property '{new_path}' was updated." \
                    f" From {old_value_str} to {new_value_str}"
             result.append(line)
     return result
 
 
-def make_str_from_value(value) -> str:
+def to_str(value) -> str:
     if isinstance(value, dict):
         value = '[complex value]'
     elif isinstance(value, bool) or value is None:
