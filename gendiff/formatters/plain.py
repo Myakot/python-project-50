@@ -9,30 +9,30 @@ def to_plain(diff: list) -> str:
 
 
 def walk(items: list, path: str) -> list:
-    result = []
-    for item in items:
+    def process_item(item):
         name, type_, value = get_name_type_value(item)
         new_path = f'{path}{name}'
         match type_:
             case 'added':
                 value_str = to_str(value)
                 line = f"Property '{new_path}' was added with value: {value_str}"
-                result.append(line)
+                return line
             case 'removed':
                 line = f"Property '{new_path}' was removed"
-                result.append(line)
+                return line
             case 'nested':
                 children = get_children(item)
                 line = '\n'.join(walk(children, f'{new_path}.'))
-                result.append(line)
+                return line
             case 'changed':
                 old_value, new_value = value
                 old_value_str = to_str(old_value)
                 new_value_str = to_str(new_value)
                 line = f"Property '{new_path}' was updated." \
                        f" From {old_value_str} to {new_value_str}"
-                result.append(line)
-    return result
+                return line
+    result = list(map(process_item, items))
+    return [line for line in result if line is not None]
 
 
 def to_str(value) -> str:
