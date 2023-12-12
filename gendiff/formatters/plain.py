@@ -13,24 +13,25 @@ def walk(items: list, path: str) -> list:
     for item in items:
         name, type_, value = get_name_type_value(item)
         new_path = f'{path}{name}'
-        if type_ == 'added':
-            value_str = to_str(value)
-            line = f"Property '{new_path}' was added with value: {value_str}"
-            result.append(line)
-        elif type_ == 'removed':
-            line = f"Property '{new_path}' was removed"
-            result.append(line)
-        elif type_ == 'nested':
-            children = get_children(item)
-            line = '\n'.join(walk(children, f'{new_path}.'))
-            result.append(line)
-        elif type_ == 'changed':
-            old_value, new_value = value
-            old_value_str = to_str(old_value)
-            new_value_str = to_str(new_value)
-            line = f"Property '{new_path}' was updated." \
-                   f" From {old_value_str} to {new_value_str}"
-            result.append(line)
+        match type_:
+            case 'added':
+                value_str = to_str(value)
+                line = f"Property '{new_path}' was added with value: {value_str}"
+                result.append(line)
+            case 'removed':
+                line = f"Property '{new_path}' was removed"
+                result.append(line)
+            case 'nested':
+                children = get_children(item)
+                line = '\n'.join(walk(children, f'{new_path}.'))
+                result.append(line)
+            case 'changed':
+                old_value, new_value = value
+                old_value_str = to_str(old_value)
+                new_value_str = to_str(new_value)
+                line = f"Property '{new_path}' was updated." \
+                       f" From {old_value_str} to {new_value_str}"
+                result.append(line)
     return result
 
 
