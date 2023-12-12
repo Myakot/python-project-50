@@ -15,7 +15,8 @@ def walk(items: list, path: str) -> list:
         match type_:
             case 'added':
                 value_str = to_str(value)
-                line = f"Property '{new_path}' was added with value: {value_str}"
+                line = (f"Property '{new_path}' was added with value: "
+                        f"{value_str}")
                 return line
             case 'removed':
                 line = f"Property '{new_path}' was removed"

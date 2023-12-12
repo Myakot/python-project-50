@@ -1,6 +1,7 @@
 def create_diff(data_1: dict, data_2: dict) -> list:
-    diff = list()
-    keys = set(data_1) | set(data_2)
+    diff = []
+
+    keys = data_1.keys() | data_2.keys()
 
     for key in sorted(keys):
         new_item = {'name': key}
