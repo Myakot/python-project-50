@@ -29,7 +29,7 @@ def walk(items: list, path: str) -> list:
                 return f"Property '{new_path}' was updated." \
                        f" From {old_value_str} to {new_value_str}"
     result = map(process_item, items)
-    return [line for line in result if line is not None]
+    return list(filter(lambda line: line is not None, result))
 
 
 def to_str(value) -> str:
