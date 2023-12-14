@@ -1,6 +1,6 @@
 from gendiff.diff import create_diff
 from gendiff.parser import parse
-from gendiff.formatters.formatter import stringify_diff
+from gendiff.formatters import stringify_diff
 import os
 
 

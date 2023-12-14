@@ -7,7 +7,7 @@ from gendiff.diff import create_diff
 from gendiff.formatters.stylish import stylish_format
 from gendiff.formatters.plain import to_plain
 from gendiff.formatters.json import json_format
-from gendiff.formatters.formatter import stringify_diff
+from gendiff.formatters import stringify_diff
 import tests.CONSTANTS as PATH
 
 
