@@ -1,5 +1,5 @@
 from json import dumps
-from gendiff.formatters.get_data import get_name_type_value, get_children
+from gendiff.formatters.utils import get_name_type_value, get_children
 
 
 def to_plain(diff: list) -> str:
