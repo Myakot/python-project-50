@@ -3,7 +3,7 @@ import copy
 
 from gendiff.generate_difference import generate_diff, get_format_and_data
 from gendiff.parser import parse
-from gendiff.diff import create_diff
+from gendiff.diff_tree import create_diff
 from gendiff.formatters.stylish import stylish_format
 from gendiff.formatters.plain import to_plain
 from gendiff.formatters.json import json_format
