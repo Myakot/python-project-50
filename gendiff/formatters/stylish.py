@@ -1,5 +1,6 @@
 from json import dumps
 from gendiff.formatters.get_data import get_name_type_value, get_children
+from tests.CONSTANTS import TAB_STEP
 
 
 def stylish_format(diff: list) -> str:
@@ -29,8 +30,8 @@ def dive(items: list, depth: int) -> str:
 
 def make_string(depth: int, sign: str, name: str,
                 value=None, children=None) -> str:
-    begin = f'{depth * "    "}  {sign} {name}: '
-    end = f"\n{depth * '    '}    " + '}'
+    begin = f'{depth * TAB_STEP}  {sign} {name}: '
+    end = f"\n{depth * TAB_STEP}    " + '}'
     if children:
         dive_result = dive(children, depth + 1)
         result = begin + '{\n' + dive_result + end
