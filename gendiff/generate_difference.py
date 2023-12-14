@@ -12,11 +12,10 @@ def get_format_and_data(path: str) -> tuple[str, str]:
 
 def get_format(path: str) -> str:
     data_format = os.path.splitext(path)[1]
-    if data_format == '.yaml':
-        data_format = '.yml'
-    elif data_format == '':
+    if data_format == '':
         raise FileNotFoundError('Unknown file format')
-    return data_format[1:]
+    else:
+        return data_format[1:]
 
 
 def generate_diff(file1_path: str, file2_path: str, format='stylish') -> str:
