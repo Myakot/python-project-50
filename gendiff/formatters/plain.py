@@ -15,23 +15,19 @@ def walk(items: list, path: str) -> list:
         match type_:
             case 'added':
                 value_str = to_str(value)
-                line = (f"Property '{new_path}' was added with value: "
+                return (f"Property '{new_path}' was added with value: "
                         f"{value_str}")
-                return line
             case 'removed':
-                line = f"Property '{new_path}' was removed"
-                return line
+                return f"Property '{new_path}' was removed"
             case 'nested':
                 children = get_children(item)
-                line = '\n'.join(walk(children, f'{new_path}.'))
-                return line
+                return '\n'.join(walk(children, f'{new_path}.'))
             case 'changed':
                 old_value, new_value = value
                 old_value_str = to_str(old_value)
                 new_value_str = to_str(new_value)
-                line = f"Property '{new_path}' was updated." \
+                return f"Property '{new_path}' was updated." \
                        f" From {old_value_str} to {new_value_str}"
-                return line
     result = list(map(process_item, items))
     return [line for line in result if line is not None]
 
