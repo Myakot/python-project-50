@@ -1,5 +1,5 @@
 from json import dumps
-from gendiff.formatters.utils import get_name_type_value, get_children
+from gendiff.formatters.utils import get_key_info, get_children
 
 
 def to_plain(diff: list) -> str:
@@ -10,7 +10,7 @@ def to_plain(diff: list) -> str:
 
 def walk(items: list, path: str) -> list:
     def process_item(item):
-        name, type_, value = get_name_type_value(item)
+        name, type_, value = get_key_info(item)
         new_path = f'{path}{name}'
         match type_:
             case 'added':

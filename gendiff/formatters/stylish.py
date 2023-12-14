@@ -1,5 +1,5 @@
 from json import dumps
-from gendiff.formatters.utils import get_name_type_value, get_children
+from gendiff.formatters.utils import get_key_info, get_children
 from tests.CONSTANTS import TAB_STEP
 
 
@@ -10,7 +10,7 @@ def stylish_format(diff: list) -> str:
 def dive(items: list, depth: int) -> str:
     result = []
     for item in items:
-        name, type_, value = get_name_type_value(item)
+        name, type_, value = get_key_info(item)
         if type_ == 'nested':
             children = get_children(item)
             lines = make_string(depth, ' ', name, children=children)
