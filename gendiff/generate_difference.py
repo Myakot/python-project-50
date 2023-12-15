@@ -22,7 +22,7 @@ def generate_diff(file1_path: str, file2_path: str, format='stylish') -> str:
     ''' Compares two configuration files and return string with difference
     :param file1_path: Path to the first file
     :param file2_path: Path to the second file
-    :param format: Output format: 'stylish' - default, 'plains' or 'json'
+    :param format: Output format: 'stylish' - default, 'plain' or 'json'
     :return: str
     '''
     data_1 = parse(*get_format_and_data(file1_path))

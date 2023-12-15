@@ -24,10 +24,10 @@ def test_generate_diff(file1_path, file2_path, path_to_result):
 
 @pytest.mark.parametrize('file1_path, file2_path, print_format, path_to_result',
                          [(PATH.PATH_YML_1, PATH.PATH_YML_2, 'stylish', PATH.PATH_YAML_RESULT),
-                          (PATH.PATH_YML_1, PATH.PATH_YML_2, 'plains', PATH.PLAIN_1_RESULT),
+                          (PATH.PATH_YML_1, PATH.PATH_YML_2, 'plain', PATH.PLAIN_1_RESULT),
                           (PATH.PATH_YML_1, PATH.PATH_YML_2, 'json', PATH.JSON_FORMAT_RESULT_1),
-                          (PATH.PATH_JSON_1_1, PATH.PATH_JSON_1_2, 'plains', PATH.PLAIN_1_RESULT),
-                          (PATH.PATH_JSON_2_1, PATH.PATH_JSON_2_2, 'plains', PATH.PLAIN_2_RESULT),
+                          (PATH.PATH_JSON_1_1, PATH.PATH_JSON_1_2, 'plain', PATH.PLAIN_1_RESULT),
+                          (PATH.PATH_JSON_2_1, PATH.PATH_JSON_2_2, 'plain', PATH.PLAIN_2_RESULT),
                           (PATH.PATH_JSON_1_1, PATH.PATH_JSON_1_2, 'json', PATH.JSON_FORMAT_RESULT_1),
                           (PATH.PATH_JSON_2_1, PATH.PATH_JSON_2_2, 'json', PATH.JSON_FORMAT_RESULT_2)])
 def test_generate_diff_format(file1_path, file2_path, print_format, path_to_result):
