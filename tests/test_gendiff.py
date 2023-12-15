@@ -43,7 +43,7 @@ def test_open_exception():
 
 
 def test_stringify_exception():
-    with pytest.raises(FileNotFoundError):
+    with pytest.raises(ValueError):
         stringify_diff('diff_data', 'unknown format')
 
 
