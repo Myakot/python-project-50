@@ -1,6 +1,6 @@
 from json import dumps
 from gendiff.formatters.utils import get_key_info, get_children
-from tests.CONSTANTS import TAB_STEP
+from gendiff.CONSTANTS import TAB_STEP
 
 
 def stylish_format(diff: list) -> str:

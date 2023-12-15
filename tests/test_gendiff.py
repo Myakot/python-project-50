@@ -8,7 +8,7 @@ from gendiff.formatters.stylish import stylish_format
 from gendiff.formatters.plain import to_plain
 from gendiff.formatters.json import json_format
 from gendiff.formatters import stringify_diff
-import tests.CONSTANTS as PATH
+import gendiff.CONSTANTS as PATH
 
 
 # В очередной раз спасибо комментариям к шагам проекта за декоратор parametrize
