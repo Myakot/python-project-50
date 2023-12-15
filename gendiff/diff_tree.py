@@ -1,4 +1,23 @@
 def create_diff(data_1: dict, data_2: dict) -> list:
+    """
+    Generates a diff between two dictionaries.
+
+    Parameters:
+    - data_1 (dict): The first dictionary to compare.
+    - data_2 (dict): The second dictionary to compare.
+
+    Returns:
+    - diff (list): A list of differences between the two dictionaries. Each difference is represented as a dictionary with the following keys:
+        - name (str): The name of the key that has a difference.
+        - type (str): The type of difference. Possible values are:
+            - 'added': The key is present in data_2 but not in data_1.
+            - 'removed': The key is present in data_1 but not in data_2.
+            - 'nested': The key is present in both dictionaries and its value is a nested dictionary. The nested dictionary represents the differences in the values of the key.
+            - 'unchanged': The key is present in both dictionaries and its value is the same in both.
+            - 'changed': The key is present in both dictionaries and its value is different in data_1 and data_2. The value is a tuple containing the old value from data_1 and the new value from data_2.
+        - value: The value associated with the key.
+
+    """
     diff = []
 
     keys = data_1.keys() | data_2.keys()

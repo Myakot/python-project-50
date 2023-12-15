@@ -4,8 +4,21 @@ from gendiff.cli import parse_args
 
 
 def main():
+    """
+    Generate and print a diff between two files.
+
+    This function takes no parameters.
+
+    Returns:
+        None
+    """
+    # Parse command line arguments
     args = parse_args()
+
+    # Generate the diff using the specified format
     diff = generate_diff(args.first_file, args.second_file, args.format)
+
+    # Print the diff
     print(diff)
 
 
