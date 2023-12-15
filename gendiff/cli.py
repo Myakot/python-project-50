@@ -1,5 +1,5 @@
 import argparse
-from CONSTANTS import DESCRIPTION_GENDIFF
+from gendiff.CONSTANTS import DESCRIPTION_GENDIFF
 
 
 def parse_args():
