@@ -5,7 +5,7 @@ from gendiff.formatters.json import json_format
 
 def stringify_diff(diff: list, print_format: str) -> str:
     match print_format:
-        case 'plain':
+        case 'plains':
             return to_plain(diff)
         case 'json':
             return json_format(diff)
