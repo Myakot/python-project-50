@@ -12,7 +12,7 @@ def stringify_diff(diff: list, print_format: str) -> str:
         case 'stylish':
             return stylish_format(diff)
         case _:
-            raise FileNotFoundError(f'Unknown format: {print_format}')
+            raise ValueError(f'Unknown format: {print_format}')
 
 
 __all__ = ['stringify_diff']

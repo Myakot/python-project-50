@@ -2,11 +2,6 @@ def create_diff(data_1: dict, data_2: dict) -> list:
     diff = []
 
     keys = data_1.keys() | data_2.keys()
-    #         if key not in data_1:
-    #             new_item['type'] = 'added'  # вместо этого
-    #             new_item['value'] = data_2[key]
-    #         # вот так
-    #         if key not in data_1:
 
     for key in sorted(keys):
         new_item = {'name': key}
