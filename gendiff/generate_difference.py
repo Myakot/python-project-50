@@ -6,14 +6,16 @@ import os
 
 def get_format_and_data(path: str) -> tuple[str, str]:
     """
-    Reads the contents of a file specified by the given `path` and returns a tuple containing
+    Reads the contents of a file specified by the given `path`
+    and returns a tuple containing
     the file contents as a string and the format of the file as a string.
 
     Parameters:
         path (str): The path of the file to read.
 
     Returns:
-        tuple[str, str]: A tuple containing the file contents as a string and the format of the file as a string.
+        tuple[str, str]: A tuple containing the file contents as
+        a string and the format of the file as a string.
     """
     with open(path, 'r') as stream:
         text = stream.read()
