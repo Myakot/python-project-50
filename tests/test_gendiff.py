@@ -1,5 +1,6 @@
 import pytest
 import copy
+import os
 
 from gendiff.generate_difference import generate_diff, get_format_and_data
 from gendiff.parser import parse
@@ -8,10 +9,16 @@ from gendiff.formatters.stylish import stylish_format
 from gendiff.formatters.plain import to_plain
 from gendiff.formatters.json import json_format
 from gendiff.formatters import stringify_diff
-import gendiff.CONSTANTS as PATH
+import tests.CONSTANTS as PATH
 
 
-# В очередной раз спасибо комментариям к шагам проекта за декоратор parametrize
+# @pytest.mark.parametrize('file1_name, file2_name, result_name',
+#                          [])
+# def test_generate_diff(file1_name, file2_name, result_name):
+#     with open(result_name):
+#         assert generate_diff(file1_name, file2_name) == result_name.read()
+
+
 @pytest.mark.parametrize('file1_path, file2_path, path_to_result',
                          [(PATH.PATH_JSON_FLAT_1, PATH.PATH_JSON_FLAT_2, PATH.PATH_JSON_FLAT_RESULT),
                           (PATH.PATH_YML_FLAT_1, PATH.PATH_YML_FLAT_2, PATH.PATH_YML_FLAT_RESULT),
