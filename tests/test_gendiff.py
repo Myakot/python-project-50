@@ -1,6 +1,6 @@
 import pytest
 import copy
-import os
+# import os
 
 from gendiff.generate_difference import generate_diff, get_format_and_data
 from gendiff.parser import parse
