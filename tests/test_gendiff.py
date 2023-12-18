@@ -3,8 +3,26 @@ import pytest
 
 from gendiff.generate_difference import generate_diff, get_format_and_data
 from gendiff.formatters import stringify_diff
-from tests.fixtures.utils import get_file_path
+from tests.utils import get_file_path
 from tests.CONSTANTS import PATH_JSON_FLAT_RESULT
+
+
+def get_file_data(result_name):
+    with open(f'tests/fixtures/{result_name}') as file:
+        return file.read()
+
+format_cases = {'yml', 'json'}
+result_flat_stylish = get_result('results/result_flat_stylish')
+result_flat_plain = get_result('results/result_flat_plain')
+result_flat_json = get_result('results/result_flat_json')
+
+@pytest.mark.parametrize('format_case', format_cases)
+def test_gendiff_flat(format_case):
+    file_paths = get_file_data(f'flat1.{format_case}'), get_file_data(f'flat2.{format_case}')
+    assert generate_diff(*file_paths) == result_flat_stylish
+    assert generate_diff(*file_paths, FORMATS.STYLISH) == result_flat_stylish
+    assert generate_diff(*file_paths, FORMATS.PLAIN) == result_flat_plain
+    assert generate_diff(*file_paths, FORMATS.JSON) == result_flat_json
 
 
 @pytest.mark.parametrize(
