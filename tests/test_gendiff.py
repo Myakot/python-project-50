@@ -1,6 +1,5 @@
 import pytest
 import copy
-import os
 
 
 from gendiff.generate_difference import generate_diff, get_format_and_data
@@ -50,6 +49,7 @@ def test_generate_diff(file1_path, file2_path, path_to_result):
         test_path1 = get_file_path(file1_path)
         test_path2 = get_file_path(file2_path)
         assert generate_diff(test_path1, test_path2) == result_data
+
 
 @pytest.mark.parametrize(
     "file1_path, file2_path, print_format,  path_to_result",
