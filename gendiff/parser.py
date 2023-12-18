@@ -16,10 +16,10 @@ def parse(data: str, format: str) -> dict:
         dict: The parsed data as a dictionary.
 
     Raises:
-        TypeError: If the data is empty.
+        ValueError: If the data is empty.
     """
-    if not data:
-        raise TypeError('File is missing data')
+    if not data or data.strip() == '':
+        raise ValueError('Data is empty')
     match format:
         case 'json':
             return json.loads(data)
@@ -27,3 +27,5 @@ def parse(data: str, format: str) -> dict:
             return yaml.load(data, yaml.Loader)
         case 'yml':
             return yaml.load(data, yaml.Loader)
+        case _:
+            raise ValueError(f"Invalid format: {format}")
