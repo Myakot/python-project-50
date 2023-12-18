@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "hexlet-code"
 version = "0.1.0"
-description = ""
+description = "Difference generator. Second of the four training projects of Hexlet's course program, supervised by Rafael Mukhametshin."
 authors = ["Myakot <cstepan@yandex.ru>"]
 readme = "README.md"
 packages = [
