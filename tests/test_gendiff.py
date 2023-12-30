@@ -4,7 +4,7 @@ import pytest
 from gendiff.generate_difference import generate_diff, get_format_and_data
 from gendiff.formatters import stringify_diff
 from tests.utils import get_file_path
-from tests.CONSTANTS import PATH_JSON_FLAT_RESULT
+from tests.constants import PATH_JSON_FLAT_RESULT
 
 
 @pytest.mark.parametrize(
